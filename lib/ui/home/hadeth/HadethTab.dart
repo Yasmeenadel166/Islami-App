@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami_project/ui/home/hadeth/HadethTitleWidget.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'Hadeth.dart';
 
@@ -28,7 +29,7 @@ class _HadethTabState extends State<HadethTab> {
                     horizontal: BorderSide(
                         width: 2, color: Theme.of(context).primaryColor))),
             child: Text(
-              'Hadeth',
+              AppLocalizations.of(context)!.hadeth_number,
               style: TextStyle(fontSize: 25),
             )
         ),

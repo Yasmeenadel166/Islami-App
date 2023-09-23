@@ -20,7 +20,8 @@ List<String> names =["الفاتحه","البقرة","آل عمران","النس
       children: [
         Expanded(
           flex: 1,
-            child: Image.asset('assets/images/qur2an_screen_logo.png')),
+            child: Image.asset('assets/images/qur2an_screen_logo.png')
+        ),
         Expanded(
           flex: 3,
           child: ListView.separated(

@@ -4,6 +4,7 @@ import 'package:islami_project/ui/home/hadeth/HadethTab.dart';
 import 'package:islami_project/ui/home/quran/QuranTab.dart';
 import 'package:islami_project/ui/home/radio/RadioTab.dart';
 import 'package:islami_project/ui/home/tasbeh/Tasbeh.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomeScreen extends StatefulWidget {
 static const String routeName = 'HomeScreen';
@@ -16,9 +17,9 @@ class _HomeScreenState extends State<HomeScreen> {
 int selectedTabIndex =0;
 List<Widget> tabs =[
   QuranTab(),
-  TasbehTab(),
+  HadethTab(),
   RadioTab(),
-  HadethTab()
+  TasbehTab(),
 ];
 
   @override
@@ -35,7 +36,7 @@ List<Widget> tabs =[
         appBar: AppBar(
          // backgroundColor: Colors.transparent,
           title: Text(
-            'Islami'
+            AppLocalizations.of(context)!.app_name   // nullable so should put !
           ),
 
         ),
@@ -51,19 +52,19 @@ List<Widget> tabs =[
             BottomNavigationBarItem(
               backgroundColor: Theme.of(context).primaryColor,
                 icon: ImageIcon(AssetImage('assets/images/icon_quran.png')),
-                label: 'Quran'),
+                label: AppLocalizations.of(context)!.quran),
             BottomNavigationBarItem(
                 backgroundColor: Theme.of(context).primaryColor,
                 icon: ImageIcon(AssetImage('assets/images/icon_hadeth.png'),),
-                label: 'Hadeth'),
+                label: AppLocalizations.of(context)!.hadeth),
             BottomNavigationBarItem(
                 backgroundColor: Theme.of(context).primaryColor,
                 icon: ImageIcon(AssetImage('assets/images/icon_radio.png'),),
-                label: 'Radio'),
+                label: AppLocalizations.of(context)!.radio),
             BottomNavigationBarItem(
                 backgroundColor: Theme.of(context).primaryColor,
                 icon: ImageIcon(AssetImage('assets/images/icon_sebha.png'),),
-                label: 'Sebha'),
+                label: AppLocalizations.of(context)!.tasbeh),
           ],
         ),
         body: tabs[selectedTabIndex],
