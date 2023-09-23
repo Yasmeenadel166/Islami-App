@@ -22,9 +22,7 @@ Hadeth hadeth;
           padding: EdgeInsets.all(8),
           child: Text(
             hadeth.title ,
-            style:TextStyle(
-                fontSize: 28
-            ) ,
+            style:Theme.of(context).textTheme.titleMedium,
           )
       ),
     );
