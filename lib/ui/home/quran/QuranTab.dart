@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'ChapterTitleWidget.dart';
 
@@ -22,9 +23,19 @@ List<String> names =["الفاتحه","البقرة","آل عمران","النس
           flex: 1,
             child: Image.asset('assets/images/qur2an_screen_logo.png')
         ),
-        Text('Chapter Name' ,
-          style: Theme.of(context).textTheme.titleMedium
-          ),
+        Container(
+            padding: EdgeInsets.symmetric(vertical: 8),
+            alignment: Alignment.center,
+            width: double.infinity,
+            decoration: BoxDecoration(
+                border: Border.symmetric(
+                    horizontal: BorderSide(
+                        width: 2, color: Theme.of(context).primaryColor))),
+            child: Text(AppLocalizations.of(context)!.chapter_name,
+                style: Theme.of(context).textTheme.titleMedium
+            ),
+        ),
+
         Expanded(
           flex: 3,
           child: ListView.separated(
