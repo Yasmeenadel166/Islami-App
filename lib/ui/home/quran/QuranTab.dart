@@ -22,6 +22,9 @@ List<String> names =["الفاتحه","البقرة","آل عمران","النس
           flex: 1,
             child: Image.asset('assets/images/qur2an_screen_logo.png')
         ),
+        Text('Chapter Name' ,
+          style: Theme.of(context).textTheme.titleMedium
+          ),
         Expanded(
           flex: 3,
           child: ListView.separated(
@@ -29,7 +32,7 @@ List<String> names =["الفاتحه","البقرة","آل عمران","النس
                 return ChapterTitleWidget(names[index], index );
               }, 
               separatorBuilder: (context, index) => Container(
-                color: Theme.of(context).primaryColor,
+                color: Theme.of(context).dividerColor,
                 width: double.infinity,
                 height: 2,
                 margin: EdgeInsets.symmetric(horizontal: 64),

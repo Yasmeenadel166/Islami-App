@@ -30,7 +30,7 @@ class _HadethTabState extends State<HadethTab> {
                         width: 2, color: Theme.of(context).primaryColor))),
             child: Text(
               AppLocalizations.of(context)!.hadeth_number,
-              style: TextStyle(fontSize: 25),
+              style: Theme.of(context).textTheme.titleMedium,
             )
         ),
         Expanded(
@@ -42,7 +42,7 @@ class _HadethTabState extends State<HadethTab> {
                   return HadethTitleWidget(allhadeth[index]);   //Text(allhadeth[index].title);
                 },
                 separatorBuilder: (context, index) => Container(
-                      color: Theme.of(context).primaryColor,
+                      color: Theme.of(context).dividerColor,
                       width: double.infinity,
                       height: 2,
                       margin: EdgeInsets.symmetric(horizontal: 64),

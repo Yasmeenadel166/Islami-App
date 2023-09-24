@@ -1,5 +1,7 @@
 
 import 'package:flutter/material.dart';
+import 'package:islami_project/ui/MyThemeData.dart';
+import 'package:islami_project/ui/home/Settings/SettingsTab.dart';
 import 'package:islami_project/ui/home/hadeth/HadethTab.dart';
 import 'package:islami_project/ui/home/quran/QuranTab.dart';
 import 'package:islami_project/ui/home/radio/RadioTab.dart';
@@ -20,6 +22,7 @@ List<Widget> tabs =[
   HadethTab(),
   RadioTab(),
   TasbehTab(),
+  SettingsTab()
 ];
 
   @override
@@ -27,7 +30,11 @@ List<Widget> tabs =[
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-          image:  AssetImage('assets/images/default_bg.png'),
+          image:  AssetImage(
+              MyThemeData.isDarkEnabled?
+               'assets/images/dark_bg.png'
+              :'assets/images/default_bg.png'
+          ),
           fit: BoxFit.fill
         ),
       ),
@@ -65,6 +72,10 @@ List<Widget> tabs =[
                 backgroundColor: Theme.of(context).primaryColor,
                 icon: ImageIcon(AssetImage('assets/images/icon_sebha.png'),),
                 label: AppLocalizations.of(context)!.tasbeh),
+            BottomNavigationBarItem(
+                backgroundColor: Theme.of(context).primaryColor,
+                icon: Icon(Icons.settings),
+                label: 'Settings'),
           ],
         ),
         body: tabs[selectedTabIndex],
