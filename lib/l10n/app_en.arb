@@ -1,0 +1,10 @@
+{
+  "app_name" : "Islami" ,
+  "quran" : "Quran" ,
+  "hadeth" : "Hadeth" ,
+  "tasbeh" : "Tasbeh" ,
+  "radio" : "Radio" ,
+  "hadeth_number" : "Hadeth_Number" ,
+  "chapter_name" : "Chapter_Name"
+
+}
