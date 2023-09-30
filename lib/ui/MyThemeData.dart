@@ -3,7 +3,7 @@
  import 'package:flutter/material.dart';
 
  class MyThemeData{
- static bool isDarkEnabled = false;
+ //static bool isDarkEnabled = false;
  static const Color lightPrimary = Color(0xFFB7935F); //Gold
  static const Color darkPrimary  = Color(0xFF141A2E); //Kohly
  static const Color darkSecondary = Color(0xFFFACC1D);  //selectedItem color yellow in bottomNavigationBar darkMode
@@ -68,6 +68,8 @@
          backgroundColor: Colors.white
      )
   );
+
+
  static ThemeData darkTheme  = ThemeData(
      textTheme: const TextTheme(
          headlineSmall: TextStyle(
