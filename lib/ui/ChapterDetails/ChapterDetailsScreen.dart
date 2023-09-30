@@ -2,7 +2,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami_project/ui/ChapterDetails/VerseWidget.dart';
+import 'package:provider/provider.dart';
 
+import '../../providers/SettingsProvider.dart';
 import '../MyThemeData.dart';
 
 class ChapterDetailsScreen extends StatefulWidget {
@@ -16,6 +18,8 @@ class _ChapterDetailsScreenState extends State<ChapterDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     ChapterDetailsArgs args = ModalRoute.of(context)?.settings.arguments as ChapterDetailsArgs;
+    var provider = Provider.of<SettingsProvider>(context);
+
     if(verses.isEmpty) {
       loadFile(args.index);
     }
@@ -23,9 +27,7 @@ class _ChapterDetailsScreenState extends State<ChapterDetailsScreen> {
         decoration: BoxDecoration(
           image: DecorationImage(
               image:  AssetImage(
-                  MyThemeData.isDarkEnabled?
-                  'assets/images/dark_bg.png'
-                      :'assets/images/default_bg.png'
+                  provider.getBachgroundImage()
               ),
               fit: BoxFit.fill
           ),

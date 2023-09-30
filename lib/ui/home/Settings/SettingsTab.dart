@@ -1,11 +1,11 @@
-
 import 'package:flutter/material.dart';
+import 'package:islami_project/providers/SettingsProvider.dart';
 import 'package:islami_project/ui/home/Settings/LanguageBottomSheet.dart';
 import 'package:islami_project/ui/home/Settings/ThemeBottomSheet.dart';
+import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SettingsTab extends StatefulWidget {
-  
-
   @override
   State<SettingsTab> createState() => _SettingsTabState();
 }
@@ -13,39 +13,38 @@ class SettingsTab extends StatefulWidget {
 class _SettingsTabState extends State<SettingsTab> {
   @override
   Widget build(BuildContext context) {
+    var settingsProvider = Provider.of<SettingsProvider>(context);
     return Container(
-      padding: EdgeInsets.symmetric(
-        vertical: 64,
-        horizontal: 18
-      ),
+      padding: EdgeInsets.symmetric(vertical: 64, horizontal: 18),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Theme'),
+          Text(AppLocalizations.of(context)!.theme),
           InkWell(
-            onTap: (){
+            onTap: () {
               ShowThemeBottomSheet();
             },
             child: Container(
-              padding: EdgeInsets.all(12),
-              width: double.infinity,
-              decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.background,
-                borderRadius: BorderRadius.circular(12),
-                border: Border.all(
-                  color: Theme.of(context).dividerColor,
-                  width: 1
-                )
-              ),
-                child: Text('Light' ,
-                    style: Theme.of(context).textTheme.titleMedium,
-                )
-            ),
+                padding: EdgeInsets.all(12),
+                width: double.infinity,
+                decoration: BoxDecoration(
+                    color: Theme.of(context).colorScheme.background,
+                    borderRadius: BorderRadius.circular(12),
+                    border: Border.all(
+                        color: Theme.of(context).dividerColor, width: 1)),
+                child: Text(
+                  settingsProvider.isDarkEnabled() ?
+                     AppLocalizations.of(context)!.dark
+                      : AppLocalizations.of(context)!.light,
+                  style: Theme.of(context).textTheme.titleMedium,
+                )),
           ),
-          SizedBox(height: 18,),
-          Text('Language'),
+          SizedBox(
+            height: 18,
+          ),
+          Text(AppLocalizations.of(context)!.language),
           InkWell(
-            onTap: (){
+            onTap: () {
               ShowLanguageBottomSheet();
             },
             child: Container(
@@ -55,14 +54,11 @@ class _SettingsTabState extends State<SettingsTab> {
                     color: Theme.of(context).colorScheme.background,
                     borderRadius: BorderRadius.circular(12),
                     border: Border.all(
-                        color: Theme.of(context).dividerColor,
-                        width: 1
-                    )
-                ),
-                child: Text('English' ,
+                        color: Theme.of(context).dividerColor, width: 1)),
+                child: Text(
+                  settingsProvider.currentLocale == 'en' ? 'English' : 'العربية',
                   style: Theme.of(context).textTheme.titleMedium,
-                )
-            ),
+                )),
           )
         ],
       ),
@@ -70,15 +66,17 @@ class _SettingsTabState extends State<SettingsTab> {
   }
 
   void ShowThemeBottomSheet() {
-    showModalBottomSheet(context: context,
-        builder: (context) {
-          return ThemeBottomSheet();
-        },
+    showModalBottomSheet(
+      context: context,
+      builder: (context) {
+        return ThemeBottomSheet();
+      },
     );
   }
 
   void ShowLanguageBottomSheet() {
-    showModalBottomSheet(context: context,
+    showModalBottomSheet(
+      context: context,
       builder: (context) {
         return LanguageBottomSheet();
       },

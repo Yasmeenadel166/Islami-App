@@ -5,6 +5,12 @@
   "tasbeh" : "التسبيح" ,
   "radio" : "الاذاعة" ,
   "hadeth_number" : "رقم الحديث" ,
-  "chapter_name" : "رقم السورة"
-
+  "chapter_name" : "رقم السورة",
+  "number_of_tasbeh" : "عدد التسبيحات",
+  "holy_quran_radio" : "اذاعة القران الكريم",
+  "settings" : "الاعدادات" ,
+  "language" : "اللغة" ,
+  "theme" : "السمة" ,
+  "dark" : "ليلي" ,
+  "light" : "نهاري"
 }

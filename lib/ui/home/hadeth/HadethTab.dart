@@ -27,7 +27,8 @@ class _HadethTabState extends State<HadethTab> {
             decoration: BoxDecoration(
                 border: Border.symmetric(
                     horizontal: BorderSide(
-                        width: 2, color: Theme.of(context).primaryColor))),
+                        width: 2, color: Theme.of(context).dividerColor)
+                )),
             child: Text(
               AppLocalizations.of(context)!.hadeth_number,
               style: Theme.of(context).textTheme.titleMedium,

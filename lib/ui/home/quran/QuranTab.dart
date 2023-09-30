@@ -30,7 +30,7 @@ List<String> names =["الفاتحه","البقرة","آل عمران","النس
             decoration: BoxDecoration(
                 border: Border.symmetric(
                     horizontal: BorderSide(
-                        width: 2, color: Theme.of(context).primaryColor))),
+                        width: 2, color: Theme.of(context).dividerColor))),
             child: Text(AppLocalizations.of(context)!.chapter_name,
                 style: Theme.of(context).textTheme.titleMedium
             ),
